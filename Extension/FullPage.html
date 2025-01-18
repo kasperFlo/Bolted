@@ -2,8 +2,9 @@
 <html>
 
 <head>
-
     <title>Full Screen Tab</title>
+    <script src="FullScreen.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./FullPage.css" />
 
@@ -11,71 +12,101 @@
 </head>
 
 <body>
-    <div id="main">
-        <div class="wrapper">
-
-            <div class="sidebar">
-                <div class="profile">
-                    <div class="avatar"><span class="material-icons">account_box</span></div>
-                    <span class="username">Coolest User</span>
-                    <div class="menu-icon">⋮</div>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item active" data-tab="dashboard">
-                        <span class="material-icons">dashboard</span>
-                        <span class="text">Dashboard</span>
-                    </li>
-                    <li class="nav-item" data-tab="in-app blocking">
-                        <span class="material-icons">block</span>
-                        <span class="text">in-app Blocking</span>
-                    </li>
-                    <li class="nav-item" data-tab="daily usage limit">
-                        <span class="material-icons">analytics</span>
-                        <span class="text">Daily Usage Limit</span>
-                    </li>
-                    <li class="nav-item" data-tab="focus mode">
-                        <span class="material-icons">radio_button_checked</span>
-                        <span class="text">Focus Mode</span>
-                    </li>
-                </ul>
-
-                <hr class="divider" />
-
-                <ul class="bottom-menu">
-                    <li class="nav-item" data-tab="Settings">
-                        <span class="material-icons">settings</span>
-                        <span class="text">Settings</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="wrapper">
-                <!-- Sidebar stays the same -->
-                <div class="main-dashboard">
-                    <div class="dashboard-header">
-                        <h1>Dashboard</h1>
-                        <div class="toggle-buttons">
-                            <button class="active">Usage Time</button>
-                            <button>Today</button>
+    <div class="container-fluid">
+        <div class="p-4 bigcontainer">
+            <!-- Single row containing both columns -->
+            <div class="row">
+                <!-- Sidebar Column -->
+                <div class="col-2">
+                    <div class="sidebar p-4 bg-dark rounded">
+                        <div class="profile">
+                            <div class="avatar"><span class="material-icons">account_box</span></div>
+                            <span class="username">Coolest User</span>
+                            <div class="menu-icon">⋮</div>
                         </div>
+                        <ul class="nav-menu">
+                            <li class="nav-item active" data-tab="dashboard">
+                                <span class="material-icons">dashboard</span>
+                                <span class="text">Dashboard</span>
+                            </li>
+                            <li class="nav-item" data-tab="in-app blocking">
+                                <span class="material-icons">block</span>
+                                <span class="text">in-app Blocking</span>
+                            </li>
+                            <li class="nav-item" data-tab="daily usage limit">
+                                <span class="material-icons">analytics</span>
+                                <span class="text">Daily Usage Limit</span>
+                            </li>
+                            <li class="nav-item" data-tab="focus mode">
+                                <span class="material-icons">radio_button_checked</span>
+                                <span class="text">Focus Mode</span>
+                            </li>
+                        </ul>
+
+                        <hr class="divider" />
+
+                        <ul class="bottom-menu">
+                            <li class="nav-item" data-tab="Settings">
+                                <span class="material-icons">settings</span>
+                                <span class="text">Settings</span>
+                            </li>
+                        </ul>
                     </div>
-            
-                    <!-- Add the usage time graph section -->
-                    <div class="usage-graph">
-                        <div class="usage-header">
-                            <h2>Usage Time: 1h 47m 14s</h2>
-                            <div class="view-controls">
-                                <button class="active">Hourly</button>
-                                <button>Daily</button>
-                                <button class="more-options">⋮</button>
+                </div>
+
+                <!-- Main Dashboard Column -->
+                <div class="col-10">
+                    <div class="main-dashboard p-4 bg-dark rounded">
+                        <!-- 1. Dashboard Header -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <h1>Dashboard</h1>
+                            </div>
+                            <div class="col-6 text-end">
+                                <div class="toggle-buttons d-inline-flex">
+                                    <button class="active">Usage Time</button>
+                                    <button>Today</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="graph-container">
-                            <!-- Graph content would go here -->
+
+                        <!-- 2. Usage Graph -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="usage-graph bg-darker rounded p-4">
+                                    <!-- Your existing usage graph content -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. All Apps Usage -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>All Apps Usage</h2>
+                                <div class="app-list">
+                                    <!-- Repeat this 4 times -->
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div class="app-item d-flex align-items-center">
+                                                <div class="app-icon col-1"></div>
+                                                <div class="app-details col-9">
+                                                    <div class="app-name">Figma</div>
+                                                    <div class="progress-bar">
+                                                        <div class="progress"></div>
+                                                        <div class="secondary-progress"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="app-stats col-2 text-end">
+                                                    <div class="time">1h 53m</div>
+                                                    <div class="percentage">73%</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-            
-                    <!-- Your existing all-apps-usage section -->
                 </div>
             </div>
             
