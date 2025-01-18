@@ -92,11 +92,13 @@
 /* Preferences Section Fixed to Bottom */
 .bottom-menu {
   list-style: none;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
   margin: 0;
   position: absolute;
   bottom: 20px; /* Distance from the bottom of the sidebar */
-  left: 20px; /* Distance from the left of the sidebar */
+ 
 }
 
 
@@ -104,6 +106,9 @@
   border: 0;
   border-top: 3px solid #3B3F58; /* Horizontal line style */
   margin: 10px 0;
+  bottom: 30px;
+  position: absolute; 
+
 }
 
 
@@ -111,14 +116,17 @@
   font-size: 16px;
 }
 .material-icons {
-  font-size: 24px; /* Adjust the size of the icon */
+  font-size: 24px; /* Adjust icon size */
   margin-right: 10px; /* Space between icon and text */
-  color: inherit; /* Inherit color from the parent */
+  color: inherit; /* Inherit color from parent */
   width: 32px; /* Fixed width for all icons */
   height: 32px; /* Fixed height for all icons */
-  display: flex; /* Ensures alignment */
-  align-items: center; /* Centers vertically */
-  justify-content: center; /* Centers horizontally */
+  display: inline-flex; /* Align icons properly */
+  align-items: center; /* Vertically center the icon */
+  justify-content: center; /* Horizontally center the icon */
+  overflow: hidden; /* Ensures the icon does not exceed its container */
+  text-overflow: clip; /* Prevents text from expanding the container */
+  white-space: nowrap; /* Stops any wrapping of icon content */
 }
 
 
@@ -149,11 +157,13 @@
           <span class="text">in-app Blocking</span>
         </li>
         <li class="nav-item">
-          <span class="material-icons">monitoring</span>
+          <span class="icon-container">
+          <span class="material-icons">analytics</span>
           <span class="text">Daily Usage Limit</span>
         </li>
         <li class="nav-item">
-          <span class="material-icons">monitoring</span>
+          <span class="icon-container">
+          <span class="material-icons">radio_button_checked</span></span>
           <span class="text">Focus Mode</span>
         </li>
       
@@ -165,7 +175,6 @@
       <span class="text">Preferences</span>
     </li>
     </div>
-  <h1>Welcome to the Full Screen Tab</h1>
-  <p>This is your custom full-screen page opened from the extension.</p>
+
 </body>
 </html>
