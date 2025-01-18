@@ -2,7 +2,21 @@ const siteTimes = [];
 let currentTabId = null;
 let currentSite = null;
 let startTime = null;
+let timeElapsed = null;
 
+// Load siteTimes from storage when the extension is loaded
+chrome.storage.local.get(['siteTimes'], (result) => {
+  if (result.siteTimes) {
+    siteTimes.push(...result.siteTimes);
+  }
+});
+
+// keep track of time spent on current site before swap
+setInterval(() => {
+  if (currentSite && startTime) {
+    timeElapsed += 60000;
+  }
+}, 60000);
 
 // when a user switches tabs
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
@@ -43,6 +57,11 @@ chrome.windows.onFocusChanged.addListener((windowId) => {
   }
 });
 
+// when the extension is about to be unloaded
+chrome.runtime.onSuspend.addListener(() => {
+  addEntry();
+});
+
 // to grab the data from the background script
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "getSiteTimes") {
@@ -52,7 +71,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 function addEntry() {
   // console.log("Adding entry " + currentSite + " " + startTime + " " + Date.now());
-  siteTimes.push({ site: currentSite, start: startTime, end: Date.now() });
-
+  timeElapsed = 0; // this method is triggered when the user switches tabs, so reset the time elapsed
+  if (currentSite && startTime) {
+    siteTimes.push({ site: currentSite, start: startTime, end: Date.now() });
+    chrome.storage.local.set({ siteTimes });
+  }
   // console.log(siteTimes);
 }
