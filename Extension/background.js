@@ -52,7 +52,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 function addEntry() {
   // console.log("Adding entry " + currentSite + " " + startTime + " " + Date.now());
-  siteTimes.push({ site: currentSite, start: startTime, end: Date.now() });
-
+  if (currentSite && startTime) {
+    siteTimes.push({ site: currentSite, start: startTime, end: Date.now() });
+  }
   // console.log(siteTimes);
 }
