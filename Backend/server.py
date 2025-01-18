@@ -21,4 +21,5 @@ def analyze():
     return {"message": process_data("Backend/Pandas/Data/data.json")}
 
 if __name__ == "__main__":
-    app.run()
+    # app.run(port=5001)
+    process_data("Backend/Pandas/Data/data.json")
