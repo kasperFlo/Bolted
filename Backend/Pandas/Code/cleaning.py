@@ -1,7 +1,7 @@
 import pandas as pd
 import json
-from category import get_website_info
-from productive import isProductive
+from category import get_website_info, get_video_details
+from productive import isProductive, isProductiveYoutube
 
 # File paths
 input_file_path = "/Users/arnav/Desktop/Hackathon 2025/Bolted/Backend/Pandas/Data/data.json"
@@ -25,10 +25,17 @@ def get_website_info_for_sites(df):
     return df
 
 def calculate_productivity(df):
-    """Add productivity status to each website."""
-    df["is_productive"] = df.apply(
-        lambda row: isProductive(row["domain"], row["category"], row["description"]), axis=1
-    )
+    """Add productivity status to each website, including YouTube URLs."""
+    def get_productivity_status(row):
+        if row["domain"] == "youtube.com":  # If the domain is YouTube
+            video_details = get_video_details(row["site"])
+            title = video_details["title"]
+            tags = video_details["tags"]
+            return isProductiveYoutube(title, tags)  # Check if the video is productive
+        else:
+            return isProductive(row["domain"], row["category"], row["description"])  # For other domains
+
+    df["is_productive"] = df.apply(get_productivity_status, axis=1)
     return df
 
 def process_data(input_file_path):
