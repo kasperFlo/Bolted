@@ -16,7 +16,9 @@ limitations under the License.
 
 body {
   width: 20rem;
+  padding-inline: 1rem;
 }
+
 
 ul {
   list-style-type: none;
@@ -27,9 +29,11 @@ ul {
 li {
   padding: 0.25rem;
 }
+
 li:nth-child(odd) {
   background: #80808030;
 }
+
 li:nth-child(even) {
   background: #ffffff;
 }
@@ -37,4 +41,143 @@ li:nth-child(even) {
 h3,
 p {
   margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2b2b3d;
+  color: white;
+  margin: 0;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #3e3e5f;
+  border-radius: 0% 0% 15px 15px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Toggle Switch */
+.toggle {
+  width: 40px;
+  height: 20px;
+  background: #e6e6fa;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-circle {
+  width: 16px;
+  height: 16px;
+  background: #6b5b95;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.toggle.active {
+  background: #6b5b95;
+}
+
+.toggle.active .toggle-circle {
+  transform: translateX(20px);
+  background: #e6e6fa;
+}
+
+/* Settings Icon */
+.settings-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-icon svg {
+  fill: #e6e6fa;
+}
+
+.settings-icon:hover {
+  opacity: 0.8;
+}
+
+
+
+.productivity-bar {
+  background-color: #363654;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.bar {
+  width: 100%;
+  height: 10px;
+  background-color: #4a4a6a;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+*/ .item {
+  background-color: #2B2D42;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 30px;
+}
+
+.placeholder-img {
+  width: 50px;
+  height: 50px;
+  background-color: #E6E6FA;
+  border-radius: 5px;
+}
+
+.item-lines {
+  flex-grow: 1;
+}
+
+.line {
+  height: 12px;
+  background-color: #E6E6FA;
+  border-radius: 3px;
+  margin: 8px 0;
+}
+
+.time-limit {
+  color: white;
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.itemList {
+  margin-top: 20px;
 }
