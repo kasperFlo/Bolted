@@ -10,132 +10,126 @@
       font-family: Arial, sans-serif;
       padding: 20px;
       background-color: #292950;
-      
     }
     /* The side navigation menu */
-/* The sidenav */
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
+    /* The sidenav */
+    .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
 
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background-color: #2A2E47;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #2A2E47;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
 
-.profile {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
+    .profile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
 
-.avatar {
-  background-color: #3B3F58;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
+    .avatar {
+      background-color: #3B3F58;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
 
-.username {
-  font-size: 18px;
-  font-weight: bold;
-}
+    .username {
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-.menu-icon {
-  font-size: 18px;
-  cursor: pointer;
-}
+    .menu-icon {
+      font-size: 18px;
+      cursor: pointer;
+    }
 
-.nav-menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .nav-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.nav-item {
-  display: flex;
-  align-items: center;
-  padding: 15px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  color: #A3A8C3;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .nav-item {
+      display: flex;
+      align-items: center;
+      padding: 15px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #A3A8C3;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-.nav-item:hover {
-  background-color: #3B3F58;
-  color: #fff;
-}
+    .nav-item:hover {
+      background-color: #3B3F58;
+      color: #fff;
+    }
 
-.nav-item.active {
-  background-color: #020024;
-  color: #5CB3FF;
-}
+    .nav-item.active {
+      background-color: #020024;
+      color: #5CB3FF;
+    }
 
-/* Preferences Section Fixed to Bottom */
-.bottom-menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  padding: 15px 10px;
-  margin: 0;
-  position: absolute;
-  bottom: 20px; /* Distance from the bottom of the sidebar */
- 
-}
+    /* Preferences Section Fixed to Bottom */
+    .bottom-menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      padding: 15px 10px;
+      margin: 0;
+      position: absolute;
+      bottom: 20px; /* Distance from the bottom of the sidebar */
+    }
 
+    .divider {
+      border: 0;
+      border-top: 3px solid #3B3F58; /* Horizontal line style */
+      margin: 10px 0;
+      bottom: 30px;
+      position: absolute;
+    }
 
-.divider {
-  border: 0;
-  border-top: 3px solid #3B3F58; /* Horizontal line style */
-  margin: 10px 0;
-  bottom: 30px;
-  position: absolute; 
+    .text {
+      font-size: 16px;
+    }
 
-}
+    .material-icons {
+      font-size: 24px; /* Adjust icon size */
+      margin-right: 10px; /* Space between icon and text */
+      color: inherit; /* Inherit color from parent */
+      width: 32px; /* Fixed width for all icons */
+      height: 32px; /* Fixed height for all icons */
+      display: inline-flex; /* Align icons properly */
+      align-items: center; /* Vertically center the icon */
+      justify-content: center; /* Horizontally center the icon */
+      overflow: hidden; /* Ensures the icon does not exceed its container */
+      text-overflow: clip; /* Prevents text from expanding the container */
+      white-space: nowrap; /* Stops any wrapping of icon content */
+    }
 
-
-.text {
-  font-size: 16px;
-}
-.material-icons {
-  font-size: 24px; /* Adjust icon size */
-  margin-right: 10px; /* Space between icon and text */
-  color: inherit; /* Inherit color from parent */
-  width: 32px; /* Fixed width for all icons */
-  height: 32px; /* Fixed height for all icons */
-  display: inline-flex; /* Align icons properly */
-  align-items: center; /* Vertically center the icon */
-  justify-content: center; /* Horizontally center the icon */
-  overflow: hidden; /* Ensures the icon does not exceed its container */
-  text-overflow: clip; /* Prevents text from expanding the container */
-  white-space: nowrap; /* Stops any wrapping of icon content */
-}
-
-
-  </style>
+</style>
 </head>
 <body>
-    <script src="FullScreen.js"></script>
+   
 
-  
     <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
     <div id="main">
       
@@ -148,33 +142,33 @@
         <div class="menu-icon">⋮</div>
       </div>
       <ul class="nav-menu">
-        <li class="nav-item active">
+        <li class="nav-item active" data-tab="dashboard">
           <span class="material-icons">dashboard</span>
           <span class="text">Dashboard</span>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-tab="in-app blocking">
           <span class="material-icons">block</span>
           <span class="text">in-app Blocking</span>
         </li>
-        <li class="nav-item">
-          <span class="icon-container">
+        <li class="nav-item" data-tab="daily usage limit">
           <span class="material-icons">analytics</span>
           <span class="text">Daily Usage Limit</span>
         </li>
-        <li class="nav-item">
-          <span class="icon-container">
-          <span class="material-icons">radio_button_checked</span></span>
+        <li class="nav-item" data-tab="focus mode">
+          <span class="material-icons">radio_button_checked</span>
           <span class="text">Focus Mode</span>
         </li>
+      </ul>
       
-        <hr class="divider" />
-  <ul class="bottom-menu">
-   
-    <li class="nav-item">
-      <span class="material-icons">settings</span>
-      <span class="text">Preferences</span>
-    </li>
+      <hr class="divider" />
+      
+      <ul class="bottom-menu">
+        <li class="nav-item" data-tab="Settings">
+          <span class="material-icons">settings</span>
+          <span class="text">Settings</span>
+        </li>
+      </ul>
     </div>
-
+    <script src="FullScreen.js"></script>
 </body>
 </html>
