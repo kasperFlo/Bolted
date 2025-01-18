@@ -145,7 +145,12 @@ discardWebsite.addEventListener("click", () => {
 
 
 saveWebsite.addEventListener("click", () => {
-    const websiteURL = document.getElementById("websiteURL").value.trim();
+    let websiteURL = document.getElementById("websiteURL").value.trim();
+  
+    // Add https:// if it's missing
+    if (websiteURL && !/^https?:\/\//i.test(websiteURL)) {
+      websiteURL = "https://" + websiteURL + ".com";
+    }
   
     if (websiteURL) {
       try {
