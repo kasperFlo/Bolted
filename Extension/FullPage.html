@@ -1,18 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Full Screen Tab</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-  </style>
-</head>
-<body>
-    <script src="FullScreen.js"></script>
 
-  <h1>Welcome to the Full Screen Tab</h1>
-  <p>This is your custom full-screen page opened from the extension.</p>
+<head>
+
+    <title>Full Screen Tab</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./FullPage.css" />
+
+    <script src="FullScreen.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <div class="wrapper">
+
+            <div class="sidebar">
+                <div class="profile">
+                    <div class="avatar"><span class="material-icons">account_box</span></div>
+                    <span class="username">Coolest User</span>
+                    <div class="menu-icon">⋮</div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-tab="dashboard">
+                        <span class="material-icons">dashboard</span>
+                        <span class="text">Dashboard</span>
+                    </li>
+                    <li class="nav-item" data-tab="in-app blocking">
+                        <span class="material-icons">block</span>
+                        <span class="text">in-app Blocking</span>
+                    </li>
+                    <li class="nav-item" data-tab="daily usage limit">
+                        <span class="material-icons">analytics</span>
+                        <span class="text">Daily Usage Limit</span>
+                    </li>
+                    <li class="nav-item" data-tab="focus mode">
+                        <span class="material-icons">radio_button_checked</span>
+                        <span class="text">Focus Mode</span>
+                    </li>
+                </ul>
+
+                <hr class="divider" />
+
+                <ul class="bottom-menu">
+                    <li class="nav-item" data-tab="Settings">
+                        <span class="material-icons">settings</span>
+                        <span class="text">Settings</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="wrapper">
+                <!-- Sidebar stays the same -->
+                <div class="main-dashboard">
+                    <div class="dashboard-header">
+                        <h1>Dashboard</h1>
+                        <div class="toggle-buttons">
+                            <button class="active">Usage Time</button>
+                            <button>Today</button>
+                        </div>
+                    </div>
+            
+                    <!-- Add the usage time graph section -->
+                    <div class="usage-graph">
+                        <div class="usage-header">
+                            <h2>Usage Time: 1h 47m 14s</h2>
+                            <div class="view-controls">
+                                <button class="active">Hourly</button>
+                                <button>Daily</button>
+                                <button class="more-options">⋮</button>
+                            </div>
+                        </div>
+                        <div class="graph-container">
+                            <!-- Graph content would go here -->
+                        </div>
+                    </div>
+            
+                    <!-- Your existing all-apps-usage section -->
+                </div>
+            </div>
+            
+
+        </div> <!-- wrapper -->
+    </div> <!-- main -->
+
+
 </body>
+
 </html>
