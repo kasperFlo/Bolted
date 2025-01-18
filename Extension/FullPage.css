@@ -1,20 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     background-color: #1E1E3A;
-    display: grid;
-    grid-template-columns: 250px 1fr;
+    color: #FFFFFF;
 }
 
+/* Sidebar Styles */
 .sidebar {
-    width: 250px;
-    height: 100vh;
+    height: 95vh;
     background-color: #252543;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .profile {
@@ -41,7 +36,7 @@ body {
     flex-grow: 1;
 }
 
-.nav-menu {
+.nav-menu, .bottom-menu {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -72,169 +67,88 @@ body {
     margin-right: 12px;
 }
 
-.text {
-    font-size: 14px;
-}
-
 .divider {
-    border: none;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.1);
     margin: auto 0 20px 0;
+    border: none;
 }
 
 .bottom-menu {
-    list-style: none;
-    padding: 0;
     margin-top: auto;
 }
 
-/* Main Content Area */
-.main-content {
-    padding: 30px;
-    color: #FFFFFF;
-}
-
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.dashboard-title {
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.usage-toggle {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 4px;
-    display: flex;
-    gap: 4px;
-}
-
-.usage-toggle button {
-    padding: 8px 16px;
-    border-radius: 16px;
-    border: none;
-    background: none;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-.usage-toggle button.active {
-    background-color: #2A2E47;
-}
-
-.wrapper {
-    width: 100vh;
-    display: grid;
-    grid-template-columns: 250px 80vm;
-    min-height: 100vh;
-    gap: 24px;
-    padding: 24px;
-}
-
-
-/* Dashborad */
-
+/* Dashboard Styles */
 .main-dashboard {
     background-color: #252543;
-    border-radius: 16px;
-    padding: 24px;
-}
-
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.dashboard-header h1 {
-    color: white;
-    font-size: 32px;
-    margin: 0;
 }
 
 .usage-graph {
     background-color: #1E1E3A;
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 24px;
 }
 
-.usage-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
+.toggle-buttons {
+    background-color: #1E1E3A;
+    border-radius: 20px;
+    padding: 4px;
 }
 
-.view-controls button {
+.toggle-buttons button {
     background: none;
     border: none;
-    color: white;
+    color: #8A8DB9;
     padding: 8px 16px;
     border-radius: 16px;
-    cursor: pointer;
 }
 
-.view-controls button.active {
-    background-color: #3A3A5A;
-}
-
-.graph-container {
-    height: 300px;
-    /* Add your graph styling here */
-}
-
-/* Update existing app-list styling */
-.app-list {
-    display: grid;
-    gap: 12px;
+.toggle-buttons button.active {
+    background-color: #252543;
+    color: white;
 }
 
 .app-item {
     background-color: #1E1E3A;
-    padding: 16px;
-    border-radius: 12px;
 }
 
-.app-stats {
-    text-align: right;
-    color: white;
+.app-icon {
+    background-color: #3B3F58;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
 }
 
-.time {
-    font-weight: bold;
-    margin-bottom: 4px;
+.progress-bar {
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-top: 8px;
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    height: 100%;
+    background-color: #E6E6FA;
+    border-radius: 4px;
+}
+
+.secondary-progress {
+    position: absolute;
+    height: 8px;
+    background-color: rgba(230, 230, 250, 0.5);
+    border-radius: 4px;
+    bottom: -12px;
+    left: 0;
 }
 
 .percentage {
     color: #E6E6FA;
 }
 
-.toggle-buttons {
+.graph-container {
     background-color: #1E1E3A;
-    border-radius: 24px;
-    padding: 4px;
-    display: flex;
-    gap: 4px;
-}
-
-.toggle-buttons button {
-    padding: 8px 16px;
-    border: none;
-    background: none;
-    color: #8A8DB9;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.toggle-buttons button.active {
-    background-color: #252543;
-    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    height: 300px;
+    position: relative;
 }
