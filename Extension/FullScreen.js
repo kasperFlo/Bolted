@@ -1,5 +1,6 @@
 console.log('FullScreen.js loaded');
 
+document.addEventListener("DOMContentLoaded", function () { 
   // Select all tabs
   const tabs = document.querySelectorAll(".nav-item");
 
@@ -16,3 +17,4 @@ console.log('FullScreen.js loaded');
       console.log(`Selected tab: ${tab.dataset.tab}`);
     });
   });
+});
