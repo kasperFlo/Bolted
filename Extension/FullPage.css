@@ -84,8 +84,12 @@ body {
 }
 
 .usage-graph {
-    background-color: #1E1E3A;
+    background-color: #3B3F58;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
+
 
 .toggle-buttons {
     background-color: #1E1E3A;

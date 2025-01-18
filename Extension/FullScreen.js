@@ -1,20 +1,52 @@
-console.log('FullScreen.js loaded');
+console.log("FullScreen.js loaded");
 
-document.addEventListener("DOMContentLoaded", function () { 
-  // Select all tabs
-  const tabs = document.querySelectorAll(".nav-item");
+const views = {
+  "dashboard": "Views/dashboard.html",
+  "inAppBlocking": "Views/blocking.html",
+  "dailyUsage": "Views/usage.html",
+  "focusMode": "Views/focus.html",
+  settings: "Views/settings.html",
+};
 
-  // Add a click event listener to each tab
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      // Remove the 'active' class from all tabs
-      tabs.forEach(t => t.classList.remove("active"));
+document.addEventListener('DOMContentLoaded', function() {
+  // Load dashboard by default
+  loadView('dashboard');
 
-      // Add the 'active' class to the clicked tab
-      tab.classList.add("active");
-
-      // Optionally, log the selected tab (e.g., for page navigation or content display)
-      console.log(`Selected tab: ${tab.dataset.tab}`);
-    });
+  // Add click handlers to nav items
+  document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function() {
+          const viewName = this.getAttribute('data-tab');
+          loadView(viewName);
+          updateActiveState(this);
+      });
   });
+
+
+  function loadView(viewName) {
+    console.log('Loading view:', viewName);
+
+    fetch(views[viewName])
+        .then(response => response.text())
+        .then(html => {
+            document.querySelector('.col-10').innerHTML = html;
+            if (viewName === 'dashboard') {
+                initializeGraph();
+            }
+        });
+}
+
+
+function updateActiveState(clickedItem) {
+  document.querySelectorAll('.nav-item').forEach(item => {
+      item.classList.remove('active');
+  });
+  clickedItem.classList.add('active');
+}
+
+function initializeGraph() {
+  // Initialize graph using Chart.js or similar library
+  // For the purple/blue usage time graph shown in the image
+}
+
 });
+
