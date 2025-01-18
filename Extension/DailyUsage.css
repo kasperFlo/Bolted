@@ -2,7 +2,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #1E1E3A;
-    color:white;
     margin: 0;
     padding: 0;
 }
@@ -76,41 +75,88 @@ h1 {
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
+    background-color: #1E1E3A;
+    opacity: 90%;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #00bfff;
     border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 button {
     background-color: #28a745;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
     border-radius: 5px;
+    font-size: 14px;
     cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #218838;
 }
 
+button:active {
+    background-color: #1e7e34;
+}
+
+#deleteBtn {
+    background-color: #dc3545;
+    margin-top: 10px;
+}
+
+#deleteBtn:hover {
+    background-color: #c82333;
+}
+
+#deleteBtn:active {
+    background-color: #bd2130;
+}
+
 .close-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 30px;
+    font-size: 24px;
+    color: #555;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #007bff;
 }
