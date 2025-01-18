@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Mode</title>
+  <link rel="stylesheet" href="FocusMode.css">
+</head>
+<body>
+  <div class="focus-mode-container">
+    <header>
+      <h1>Focus Mode</h1>
+      <label class="toggle">
+        <input type="checkbox" id="focusToggle">
+        <span class="slider"></span>
+      </label>
+    </header>
+    
+    <section class="schedule">
+      <h2>Class Schedule</h2>
+      <ul id="scheduleList">
+        <!-- Dynamically generated items -->
+      </ul>
+      <button id="addSchedule">Add Class</button>
+    </section>
+
+    <section class="blocked-websites">
+      <h2>Blocked Websites</h2>
+      <ul id="blockedWebsitesList">
+        <!-- Dynamically generated items -->
+      </ul>
+      <button id="addWebsite">Add Website</button>
+    </section>
+  </div>
+
+  <div id="schedulePopup" class="popup">
+    <h3>Add or Edit Class</h3>
+    <label for="className">Class Name</label>
+    <input type="text" id="className" placeholder="Enter class name">
+  
+    <label for="daysOfWeek">Days of the Week</label>
+    <div class="days-container">
+      <label class="day-option">
+        <input type="checkbox" value="Monday"> <span>Monday</span>
+      </label>
+      <label class="day-option">
+        <input type="checkbox" value="Tuesday"> <span>Tuesday</span>
+      </label>
+      <label class="day-option">
+        <input type="checkbox" value="Wednesday"> <span>Wednesday</span>
+      </label>
+      <label class="day-option">
+        <input type="checkbox" value="Thursday"> <span>Thursday</span>
+      </label>
+      <label class="day-option">
+        <input type="checkbox" value="Friday"> <span>Friday</span>
+      </label>
+      <label class="day-option">
+        <input type="checkbox" value="Saturday"> <span>Saturday</span>
+      </label>
+      <label class="day-option">
+        <input type="checkbox" value="Sunday"> <span>Sunday</span>
+      </label>
+    </div>
+  
+    <label for="startTime">Start Time</label>
+    <input type="time" id="startTime">
+  
+    <label for="endTime">End Time</label>
+    <input type="time" id="endTime">
+  
+    <div class="popup-buttons">
+      <button id="saveClass">Save</button>
+      <button id="discardClass">Discard</button>
+    </div>
+  </div>
+  
+
+
+  
+
+  
+  
+
+
+  <!-- Website Popup -->
+  <div id="websitePopup" class="popup">
+    <h3>Add or Edit Website</h3>
+    <label for="websiteURL">Website URL</label>
+    <input type="url" id="websiteURL" placeholder="Enter website URL">
+    
+    <div class="popup-buttons">
+      <button id="saveWebsite">Save</button>
+      <button id="discardWebsite">Discard</button>
+    </div>
+  </div>
+  
+
+  <script src="FocusMode.js"></script>
+</body>
+</html>
