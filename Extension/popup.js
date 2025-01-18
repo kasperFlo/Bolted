@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function populateData() {
-  chrome.runtime.sendMessage({ type: "getSiteTimes" }, (response) => {
+async function populateData() {
+  await chrome.runtime.sendMessage({ type: "getSiteTimes" }, (response) => {
     if (response) {
       data = response;
     }
@@ -47,7 +47,34 @@ function populateData() {
       }
     });
 
-    console.log(domainTimes);
+    displayTopx(domainTimes);
   });
 }
 
+function displayTopx(dt) {
+  sitesToDisp = 10;
+  let sorted = Object.entries(dt).sort((a, b) => b[1] - a[1]);
+  let topSites = sorted.slice(0, sitesToDisp);
+  let siteStore = document.getElementById("siteStore");
+  siteStore.innerHTML = "";
+  topSites.forEach((site) => {
+    let siteDiv = document.createElement("div");
+    siteDiv.classList.add("item-row");
+    siteDiv.innerHTML = `
+      <div class="placeholder-img"></div>
+      <div class="item-lines">
+      <div class="line">${site[0]}</div>
+      <div class="line">${formatTime(site[1])}</div>
+      </div>
+    `;
+    siteStore.appendChild(siteDiv);
+  })
+}
+
+function formatTime(time) {
+  time = Math.floor(time / 1000);
+  let hours = Math.floor(time / 3600);
+  let minutes = Math.floor((time % 3600) / 60);
+  let seconds = time % 60;
+  return `${hours}h ${minutes}m ${seconds}s`;
+}
