@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1E1E3A;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #252543;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    background-color: #3B3F58;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.username {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #8A8DB9;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item.active {
+    background-color: #6366F1;
+    color: #FFFFFF;
+}
+
+.material-icons {
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: auto 0 20px 0;
+}
+
+.bottom-menu {
+    list-style: none;
+    padding: 0;
+    margin-top: auto;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.usage-toggle {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 4px;
+    display: flex;
+    gap: 4px;
+}
+
+.usage-toggle button {
+    padding: 8px 16px;
+    border-radius: 16px;
+    border: none;
+    background: none;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.usage-toggle button.active {
+    background-color: #2A2E47;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+    gap: 24px;
+    padding: 24px;
+}
+
+
+/* Dashborad */
+
+.main-dashboard {
+    background-color: #252543;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+    color: white;
+    font-size: 32px;
+    margin: 0;
+}
+
+
+
+.usage-graph {
+    background-color: #1E1E3A;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.usage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.view-controls button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.view-controls button.active {
+    background-color: #3A3A5A;
+}
+
+.graph-container {
+    height: 300px;
+    /* Add your graph styling here */
+}
+
+/* Update existing app-list styling */
+.app-list {
+    display: grid;
+    gap: 12px;
+}
+
+.app-item {
+    background-color: #1E1E3A;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+
+.app-stats {
+    text-align: right;
+    color: white;
+}
+
+.time {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.percentage {
+    color: #E6E6FA;
+}
