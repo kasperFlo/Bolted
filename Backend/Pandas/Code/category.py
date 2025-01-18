@@ -1,55 +1,72 @@
+import os
+from functools import lru_cache
+
 import requests
 from dotenv import load_dotenv
-import os
 from googleapiclient.discovery import build
 
 load_dotenv()
 os.getenv
 
+
+@lru_cache(maxsize=32)
 def get_website_info(target_url):
     # Construct the full API request URL
-    api_url = f"https://talosintelligence.com/cloud_intel/url_reputation?url={target_url}"
-    
+    api_url = (
+        f"https://talosintelligence.com/cloud_intel/url_reputation?url={target_url}"
+    )
+
     try:
         # Send a GET request to the API
-        response = requests.get(api_url)
-        
+        headers = {
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+        }
+        response = requests.get(api_url, headers=headers)
+
         # Raise an exception if the request failed
         response.raise_for_status()
-        
+
         # Parse the JSON response
         data = response.json()
-        
+
         # Extract the domain name
         domain = data.get("url_elements", {}).get("domain", "Unknown Domain")
-        
+
         # Extract the category description and full description
         category_info = data.get("reputation", {}).get("aup_cat", [])
-        category_text = category_info[0].get("desc_short", [{}])[0].get("text", "Unknown Category") if category_info else "Unknown Category"
-        description_text = category_info[0].get("desc_long", [{}])[0].get("text", "No Description Available") if category_info else "No Description Available"
-        
+        category_text = (
+            category_info[0].get("desc_short", [{}])[0].get("text", "Unknown Category")
+            if category_info
+            else "Unknown Category"
+        )
+        description_text = (
+            category_info[0]
+            .get("desc_long", [{}])[0]
+            .get("text", "No Description Available")
+            if category_info
+            else "No Description Available"
+        )
+
         # Return the results
         return domain, category_text, description_text
-    
+
     except requests.exceptions.RequestException as e:
         print(f"Error making API request: {e}")
         return None, None, None
     except (KeyError, IndexError) as e:
         print(f"Error parsing API response: {e}")
         return None, None, None
-    
+
+
 def get_video_details(video_url):
     # Extract the video ID from the URL
     video_id = video_url.split("v=")[-1].split("&")[0]
 
     # Build the YouTube API client
-    youtube = build('youtube', 'v3', developerKey=os.environ["YOUTUBE_API_KEY"])
+    youtube = build("youtube", "v3", developerKey=os.environ["YOUTUBE_API_KEY"])
 
     # Request video details
-    request = youtube.videos().list(
-        part="snippet",
-        id=video_id
-    )
+    request = youtube.videos().list(part="snippet", id=video_id)
     response = request.execute()
 
     # Extract title and tags
@@ -60,6 +77,7 @@ def get_video_details(video_url):
         return {"title": title, "tags": tags}
     else:
         return {"title": "Video not found", "tags": []}
+
 
 # Example usage
 # api_key = "AIzaSyDNL_irmkMMG9yCwMaxFzJR0x6cdFT0Otw"
