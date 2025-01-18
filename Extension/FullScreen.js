@@ -1,0 +1,1 @@
+console.log('FullScreen.js loaded');

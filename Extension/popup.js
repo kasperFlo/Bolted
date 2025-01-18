@@ -1,1 +1,6 @@
-console.log('This is a popup!');
+document.getElementById('openTab').addEventListener('click', function() {
+    chrome.tabs.create({ url: 'fullpage.html' });
+  });
+  
+
+  console,log('popup.js loaded');
