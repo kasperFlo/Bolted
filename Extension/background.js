@@ -2,7 +2,14 @@ const siteTimes = [];
 let currentTabId = null;
 let currentSite = null;
 let startTime = null;
+let timeElapsed = null;
 
+// keep track of time spent on current site before swap
+setInterval(() => {
+  if (currentSite && startTime) {
+    timeElapsed += 60000;
+  }
+}, 60000);
 
 // when a user switches tabs
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
@@ -52,6 +59,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 function addEntry() {
   // console.log("Adding entry " + currentSite + " " + startTime + " " + Date.now());
+  timeElapsed = 0; // this method is triggered when the user switches tabs, so reset the time elapsed
   if (currentSite && startTime) {
     siteTimes.push({ site: currentSite, start: startTime, end: Date.now() });
   }
