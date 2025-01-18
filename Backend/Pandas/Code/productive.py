@@ -1,6 +1,9 @@
 import google.generativeai as genai
+from dotenv import load_dotenv
+import os
 
-genai.configure(api_key="AIzaSyDQJmpb6-EFeNBVFYR2kLfDjyQJ8sGQvbY")
+load_dotenv()
+genai.configure()
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 def isProductive(domain, category, description):
