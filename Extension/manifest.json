@@ -3,12 +3,13 @@
   "description": "To Lock in the user",
   "version": "1.0",
   "manifest_version": 3,
-
-  "permissions": ["tabs"],
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
   "background": {
     "service_worker": "background.js"
-  },  
-
+  },
   "action": {
     "default_icon": "hello_extensions.png",
     "default_popup": "popup.html"
