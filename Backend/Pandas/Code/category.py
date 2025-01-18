@@ -1,4 +1,10 @@
 import requests
+from dotenv import load_dotenv
+import os
+from googleapiclient.discovery import build
+
+load_dotenv()
+os.getenv
 
 def get_website_info(target_url):
     # Construct the full API request URL
@@ -31,3 +37,34 @@ def get_website_info(target_url):
     except (KeyError, IndexError) as e:
         print(f"Error parsing API response: {e}")
         return None, None, None
+    
+def get_video_details(video_url):
+    # Extract the video ID from the URL
+    video_id = video_url.split("v=")[-1].split("&")[0]
+
+    # Build the YouTube API client
+    youtube = build('youtube', 'v3', developerKey=os.environ["YOUTUBE_API_KEY"])
+
+    # Request video details
+    request = youtube.videos().list(
+        part="snippet",
+        id=video_id
+    )
+    response = request.execute()
+
+    # Extract title and tags
+    if "items" in response and len(response["items"]) > 0:
+        snippet = response["items"][0]["snippet"]
+        title = snippet.get("title", "No Title Found")
+        tags = snippet.get("tags", [])
+        return {"title": title, "tags": tags}
+    else:
+        return {"title": "Video not found", "tags": []}
+
+# Example usage
+# api_key = "AIzaSyDNL_irmkMMG9yCwMaxFzJR0x6cdFT0Otw"
+# video_url = "https://www.youtube.com/watch?v=gGalnVpaom8&list=PLSQl0a2vh4HBnhjPgsJU2y1UhMwcYmb5u"
+# video_url1 = "https://www.youtube.com/watch?v=bgNrnzGV19U"
+# details = get_video_details(video_url)
+# print("Title:", details["title"])
+# print("Tags:", details["tags"])
