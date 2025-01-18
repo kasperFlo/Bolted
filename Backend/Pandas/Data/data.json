@@ -1,0 +1,52 @@
+[
+    {
+        "site": "https://www.youtube.com/watch?v=_TChHcdNAes",
+        "start": 1737187525916,
+        "end": 1737187531835
+    },
+    {
+        "site": null,
+        "start": null,
+        "end": 1737187553954
+    },
+    {
+        "site": "https://www.coursera.org/learn/intro-to-computer-science",
+        "start": 1737187556148,
+        "end": 1737187596472
+    },
+    {
+        "site": null,
+        "start": null,
+        "end": 1737187620844
+    },
+    {
+        "site": "https://www.reddit.com/r/learnprogramming",
+        "start": 1737187588012,
+        "end": 1737187627629
+    },
+    {
+        "site": "https://developer.chrome.com/docs/extensions/reference/api/webNavigation",
+        "start": 1737187542018,
+        "end": 1737187543861
+    },
+    {
+        "site": "https://developer.chrome.com/docs/extensions/reference/api/webNavigation",
+        "start": 1737187586862,
+        "end": 1737187635835
+    },
+    {
+        "site": "https://www.youtube.com/@Lawrence_Zhou",
+        "start": 1737187602498,
+        "end": 1737187611030
+    },
+    {
+        "site": null,
+        "start": 1737187541862,
+        "end": 1737187556410
+    },
+    {
+        "site": "https://www.reddit.com/r/learnprogramming",
+        "start": 1737187512029,
+        "end": 1737187517511
+    }
+]
