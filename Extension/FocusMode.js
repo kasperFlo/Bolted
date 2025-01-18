@@ -169,7 +169,7 @@ saveWebsite.addEventListener("click", () => {
             <img class="website-icon" 
                  src="${faviconURL}" 
                  alt="Icon" 
-                 onerror="this.onerror=null; this.src='default-icon.png';" />
+                 onerror="this.onerror=null; this.src='assets/default-image.jpg';" />
             <span class="website-info">${websiteURL}</span>
             <button class="edit-btn">Edit</button>
             <button class="delete-btn">Delete</button>
@@ -192,4 +192,4 @@ saveWebsite.addEventListener("click", () => {
       alert("Please enter a website URL.");
     }
   });
-    
+  
