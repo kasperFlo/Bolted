@@ -1,4 +1,5 @@
 import json
+from urllib.parse import urlparse
 import pandas as pd
 from category import get_video_details
 from productive import isProductive, isProductiveYoutube
@@ -20,11 +21,16 @@ def clean_data(df):
     df["session_time"] = df["end"] - df["start"]
     return df
 
+def is_youtube_url(url):
+    """Check if a URL belongs to YouTube."""
+    parsed_url = urlparse(url)
+    return "youtube.com" in parsed_url.netloc
+
 
 def calculate_productivity(df):
     """Add productivity status to each website."""
     def check_productivity(site):
-        if "youtube.com" in site:
+        if is_youtube_url(site):
             # Fetch video details (title and tags) for YouTube URLs
             video_details = get_video_details(site)
             title = video_details.get("title", "")
