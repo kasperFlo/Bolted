@@ -21,8 +21,6 @@ body {
 .focus-mode-container {
   height: 100vh;
   padding: 20px;
-  /* background: var(--selected-color); */
-  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 

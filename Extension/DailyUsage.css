@@ -3,7 +3,7 @@
     --secondary: #212529;
     --accent: #0088ff;
     --text: #ebe9fc;
-    --selected-color: #26264b;
+    --selected-color: #3B3F58;
     --background-color: #26264b;
     --dark-background: #1E1E3A;
     --light-background: #3B3F58;
@@ -36,13 +36,14 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--background);
+    background-color: var(--selected-color);
     color: var(--text);
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+
 }
 
 .site-item img {
@@ -95,7 +96,8 @@ h1 {
     background-color: var(--secondary);
     padding: 30px;
     border-radius: 10px;
-    width: 350px;
+    width: 700px;
+    height: 400px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease-out;
@@ -112,7 +114,7 @@ h1 {
 }
 
 input {
-    width: 100%;
+    width: 650px;
     padding: 12px;
     margin: 15px 0;
     border: 1px solid var(--primary);
@@ -136,7 +138,8 @@ button {
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
-    width: 100%;
+    margin-top: 50px;
+    width: 400px;
     margin-bottom: 10px;
     transition: background-color 0.3s ease;
 }
@@ -148,6 +151,11 @@ button:hover {
 button:active {
     background-color: #1e7e34;
     /* Consider replacing with a darker shade of --primary */
+}
+.button.disabled{
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
 }
 
 #deleteBtn {
@@ -176,4 +184,14 @@ button:active {
 
 .close-btn:hover {
     color: var(--primary);
+}
+
+.errorbar {
+    background-color: var(--secondary);
+    color: red;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }
