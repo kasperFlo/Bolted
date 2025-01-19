@@ -5,7 +5,7 @@ const views = {
   inAppBlocking: "./blocking.html",
   dailyUsage: "./DailyUsage.html",
   focusMode: "./FocusMode.html",
-  settings: "./Views/settings.html",
+  "settings": "./settings.html",
 };
 
 document.addEventListener("DOMContentLoaded", function () {
