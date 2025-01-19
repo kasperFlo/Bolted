@@ -1,11 +1,12 @@
 import json
+
 import pandas as pd
-from category import get_video_details
-from productive import isProductive, isProductiveYoutube
+from Pandas.Code.category import get_video_details
+from Pandas.Code.productive import isProductive, isProductiveYoutube
 
 # File paths
-input_file_path = "Backend/Pandas/Data/data.json"
-output_file_path = "Backend/Pandas/Data/output.csv"
+input_file_path = "Pandas/Data/data.json"
+output_file_path = "Pandas/Data/output.csv"
 
 
 def load_data(input_file_path):
@@ -23,6 +24,7 @@ def clean_data(df):
 
 def calculate_productivity(df):
     """Add productivity status to each website."""
+
     def check_productivity(site):
         if "youtube.com" in site:
             # Fetch video details (title and tags) for YouTube URLs
@@ -78,5 +80,5 @@ def save_result(result, output_file_path):
 
 
 # Main execution flow
-result = process_data(input_file_path)
-save_result(result, output_file_path)
+# result = process_data(input_file_path)
+# save_result(result, output_file_path)

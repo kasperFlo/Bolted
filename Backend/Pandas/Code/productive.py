@@ -1,11 +1,12 @@
-import google.generativeai as genai
-from dotenv import load_dotenv
 import os
+
+import google.generativeai as genai
 import openai
+from dotenv import load_dotenv
 
 load_dotenv()
-key = (os.environ['GOOGLE_API_KEY'])
-api_key = (os.environ['GOOGLE_API_KEY'])
+key = os.environ["GOOGLE_API_KEY"]
+api_key = os.environ["GOOGLE_API_KEY"]
 model = genai.GenerativeModel("gemini-1.5-flash")
 genai.configure(api_key=key)
 
@@ -26,18 +27,17 @@ def isProductive(URL):
      Given the information above, respond with "True" if the website is productive or "False" if it is non-productive.
      """
 
-
     try:
         # Send the prompt to the OpenAI GPT model
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt}
-            ]
+                {"role": "user", "content": prompt},
+            ],
         )
         # Extract the text response
-        answer = response['choices'][0]['message']['content'].strip()
+        answer = response["choices"][0]["message"]["content"].strip()
         # Return True if the response is "True", otherwise False
         return answer.lower() == "true"
     except Exception as e:
@@ -57,12 +57,13 @@ def isProductive(URL):
 
 #     Given the information above, respond with "True" if the website is productive or "False" if it is non-productive.
 #     """
-    
+
 #     # Send the prompt to the AI model
 #     response = model.generate_content(prompt)
 
 #     # Interpret the response and return True or False
 #     return response.text.strip().lower() == "true"
+
 
 def isProductiveYoutube(title, tags):
     prompt = f"""
@@ -82,4 +83,5 @@ def isProductiveYoutube(title, tags):
     # Interpret the response and return True or False
     return response.text.strip().lower() == "true"
 
-print(isProductive("https://slate.sheridancollege.ca/d2l/le/content/1335525/Home"))
+
+# print(isProductive("https://slate.sheridancollege.ca/d2l/le/content/1335525/Home"))
