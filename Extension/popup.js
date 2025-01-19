@@ -59,12 +59,19 @@ function displayTopx(dt) {
   siteStore.innerHTML = "";
   topSites.forEach((site) => {
     let siteDiv = document.createElement("div");
+    const totalTime = Object.values(dt).reduce((acc, time) => acc + time, 0);
+    const percentage = ((site[1] / totalTime) * 100).toFixed(2);
+
     siteDiv.classList.add("item-row");
     siteDiv.innerHTML = `
-      <div class="placeholder-img"></div>
+      <img src="http://www.google.com/s2/favicons?domain=${site[0]}" alt="favicon" class="placeholder-img">
       <div class="item-lines">
-      <div class="line">${site[0]}</div>
-      <div class="line">${formatTime(site[1])}</div>
+      <div class="line">
+      ${site[0]}
+      </div>
+      <div class="line" style="background: linear-gradient(to right, green ${percentage}%, black ${percentage}%);">
+      ${formatTime(site[1])}
+      </div>
       </div>
     `;
     siteStore.appendChild(siteDiv);
