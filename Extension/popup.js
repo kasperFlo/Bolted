@@ -67,7 +67,7 @@ function displayTopx(dt) {
     siteDiv.classList.add("item-row");
     
     siteDiv.innerHTML = `
-<div style="display: flex; height : 25px ; width: 100%; align-items: center; padding: 5px; background-color: #212529; border-radius: 4px; margin-bottom: -1px;">
+<div style="display: flex; height : 25px ; width: 100%; align-items: center; padding: 15px; background-color: #212529; border-radius: 4px; margin-bottom: -1px;">
   <img src="http://www.google.com/s2/favicons?domain=${site[0]}" alt="favicon" style="width: 32px; margin-right: 8px;">
   <div style="flex-grow: 1; overflow: hidden;">
     <div style="font-weight: bold; margin-bottom: 2px; color: #ebe9fc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
@@ -80,7 +80,6 @@ function displayTopx(dt) {
     </div>
   </div>
 </div>
-
     `;
     siteStore.appendChild(siteDiv);
   })
