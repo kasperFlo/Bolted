@@ -13,6 +13,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+:root {
+  --primary: #2fe6fe;
+  --secondary: #212529;
+  --accent: #0088ff;
+  --text: #ebe9fc;
+  --selected-color: #26264b;
+  --background-color: #26264b;
+  --dark-background: #1E1E3A;
+  --light-background: #3B3F58;
+}
 
 body {
   width: 20rem;
