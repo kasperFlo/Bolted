@@ -10,12 +10,22 @@
   <div class="focus-mode-container">
     <header>
       <h1>Focus Mode</h1>
-      <label class="toggle">
-        <input type="checkbox" id="focusToggle">
-        <span class="slider"></span>
-      </label>
+    
     </header>
     
+    <div class="mode-toggle-container">
+      <button id="modeToggle" class="mode-toggle focus-mode">Focus Mode</button>
+    </div>
+    
+    <!-- Popup Message -->
+    <div id="chillPopup" class="popup-message hidden">
+      <div class="popup-content">
+        <p>You worked hard, it's your time to chill! Cause you are a chill person 😊</p>
+        <button id="closePopup">Close</button>
+      </div>
+    </div>
+    
+
     <section class="schedule">
       <h2>Class Schedule</h2>
       <ul id="scheduleList"></ul>

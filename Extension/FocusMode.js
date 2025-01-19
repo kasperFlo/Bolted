@@ -8,14 +8,41 @@ const saveClass = document.getElementById("saveClass");
 const saveWebsite = document.getElementById("saveWebsite");
 const scheduleList = document.getElementById("scheduleList");
 const blockedWebsitesList = document.getElementById("blockedWebsitesList");
+const modeToggle = document.getElementById("modeToggle");
+const chillPopup = document.getElementById("chillPopup");
+const closePopup = document.getElementById("closePopup");
+
+let isFocusMode = true; // Tracks whether it's Focus Mode or Chill Mode
+
 
 
 document.addEventListener('DOMContentLoaded', function() { 
 
-// Toggle Focus Mode
-focusToggle.addEventListener("change", () => {
-  alert(`Focus Mode ${focusToggle.checked ? "Enabled" : "Disabled"}`);
-});
+
+  modeToggle.addEventListener("click", () => {
+    if (isFocusMode) {
+      // Switch to Chill Mode
+      modeToggle.textContent = "Chill Mode";
+      modeToggle.classList.remove("focus-mode");
+      modeToggle.classList.add("chill-mode");
+  
+      // Show the Chill Popup
+      chillPopup.classList.remove("hidden");
+    } else {
+      // Switch to Focus Mode
+      modeToggle.textContent = "Focus Mode";
+      modeToggle.classList.remove("chill-mode");
+      modeToggle.classList.add("focus-mode");
+    }
+  
+    isFocusMode = !isFocusMode; // Toggle the mode
+  });
+  
+  // Close Popup when "Close" button is clicked
+  closePopup.addEventListener("click", () => {
+    chillPopup.classList.add("hidden");
+  });
+  
 
 // Show Add Class Popup
 addSchedule.addEventListener("click", () => {
@@ -224,3 +251,4 @@ saveWebsite.addEventListener("click", () => {
     websitePopup.style.display = "block";
   }
 });
+
