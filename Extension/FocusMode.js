@@ -146,13 +146,17 @@ discardWebsite.addEventListener("click", () => {
 });
 
 
-
 saveWebsite.addEventListener("click", () => {
     let websiteURL = document.getElementById("websiteURL").value.trim();
   
     // Add https:// if it's missing
     if (websiteURL && !/^https?:\/\//i.test(websiteURL)) {
-      websiteURL = "https://" + websiteURL + ".com";
+      websiteURL = "https://" + websiteURL;
+    }
+  
+    // Add .com if no domain extension is provided
+    if (websiteURL && !/\.[a-z]{2,}$/i.test(websiteURL)) {
+      websiteURL += ".com";
     }
   
     if (websiteURL) {
@@ -168,7 +172,15 @@ saveWebsite.addEventListener("click", () => {
           // Update existing website
           const li = blockedWebsitesList.children[editWebsiteIndex];
           li.querySelector(".website-info").textContent = websiteURL;
-          li.querySelector(".website-icon").src = faviconURL;
+          
+          const faviconImg = li.querySelector(".website-icon");
+          faviconImg.src = faviconURL;
+  
+          // Add onerror fallback to default icon if favicon doesn't exist
+          faviconImg.onerror = function() {
+            this.onerror = null;
+            this.src = 'assets/default-image.jpg';
+          };
         } else {
           // Add new website
           const li = document.createElement("li");
@@ -200,4 +212,15 @@ saveWebsite.addEventListener("click", () => {
       alert("Please enter a website URL.");
     }
   });
-});
+  
+  // Edit an existing website
+  function editWebsite(li) {
+    editWebsiteIndex = Array.from(blockedWebsitesList.children).indexOf(li); // Get index of the website being edited
+  
+    // Populate the popup with existing website data
+    const websiteURL = li.querySelector(".website-info").textContent;
+    document.getElementById("websiteURL").value = websiteURL;
+  
+    websitePopup.style.display = "block";
+  }
+  
