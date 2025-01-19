@@ -36,15 +36,19 @@ function displayTopx(dt) {
 
     siteDiv.classList.add("item-row");
     siteDiv.innerHTML = `
-      <img src="http://www.google.com/s2/favicons?domain=${site[0]}" alt="favicon" class="placeholder-img">
-      <div class="item-lines">
-      <div class="line">
+<div style="display: flex; height : 25px ; width: 100%; align-items: center; padding: 15px; background-color: #212529; border-radius: 4px; margin-bottom: 12px;">
+  <img src="http://www.google.com/s2/favicons?domain=${site[0]}" alt="favicon" style="width: 32px; margin-right: 8px;">
+  <div style="flex-grow: 1; overflow: hidden;">
+    <div style="font-weight: bold; margin-bottom: 2px; color: #ebe9fc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
       ${site[0]}
-      </div>
-      <div class="line" style="background: linear-gradient(to right, green ${percentage}%, black ${percentage}%);">
-      ${formatTime(site[1])}
-      </div>
-      </div>
+    </div>
+    <div style="position: relative; height: 16px; background: linear-gradient(to right, #2fe6fe ${percentage}%, #3B3F58 ${percentage}%); border-radius: 8px; overflow: hidden;">
+      <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #ebe9fc; font-size: 11px; white-space: nowrap;">
+        ${formatTime(site[1])}
+      </span>
+    </div>
+  </div>
+</div>
     `;
     siteStore.appendChild(siteDiv);
   })
