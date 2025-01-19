@@ -1,8 +1,8 @@
 import json
 
 import pandas as pd
-from Pandas.Code.category import get_video_details, get_website_info
-from Pandas.Code.productive import isProductive, isProductiveYoutube
+from category import get_video_details, get_website_info
+from productive import isProductive, isProductiveYoutube
 
 # File paths
 input_file_path = "Backend/Pandas/Data/data.json"
