@@ -7,53 +7,53 @@
 </head>
 
 <body>
-    
 
-<div class="main-dashboard p-4 bg-dark rounded">
-    <div class="row mb-4">
-        <div class="col-6">
-            <h1>Dashboard</h1>
-        </div>
-        <div class="col-6 text-end">
-            <div class="toggle-buttons d-inline-flex rounded-pill bg-darker">
-                <button class="active px-4">Usage Time</button>
-                <button class="px-4">Today</button>
+
+    <div class="main-dashboard p-4 bg-dark rounded">
+        <div class="row mb-4">
+            <div class="col-6">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="col-6 text-end">
+                <div class="toggle-buttons d-inline-flex rounded-pill bg-darker">
+                    <button class="active px-4">Usage Time</button>
+                    <button class="px-4">Today</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="usage-graph bg-darker rounded p-4 mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>Usage Over Time :</h2>
-            <div class="view-controls">
-                <button class="active">Hourly</button>
-                <button>Daily</button>
-                <button class="more-options">⋮</button>
+        <div class="usage-graph bg-darker rounded p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Usage Over Time :</h2>
+                <div class="view-controls">
+                    <button class="active">Hourly</button>
+                    <button>Daily</button>
+                    <button class="more-options">⋮</button>
+                </div>
+            </div>
+            <div class="graph-container">
+                <!-- Graph will be initialized by JavaScript -->
             </div>
         </div>
-        <div class="graph-container">
-            <!-- Graph will be initialized by JavaScript -->
-        </div>
-    </div>
 
-    <div class="all-apps-usage">
-        <h2>All Apps Usage</h2>
-        <div class="app-list">
-            <div class="app-item d-flex align-items-center p-3 mb-3">
-                <div class="app-icon"></div>
-                <div class="app-details flex-grow-1">
-                    <div class="app-name">Figma</div>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 73%"></div>
-                        <div class="secondary-progress" style="width: 30%"></div>
+        <div class="all-apps-usage">
+            <h2>All Apps Usage</h2>
+            <div class="app-list" id="appList">
+                <div class="app-item d-flex align-items-center p-3 mb-3">
+                    <div class="app-icon"></div>
+                    <div class="app-details flex-grow-1">
+                        <div class="app-name">Figma</div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 73%"></div>
+                            <div class="secondary-progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <div class="app-stats text-end">
+                        <div class="time">1h 53m</div>
+                        <div class="percentage">73%</div>
                     </div>
                 </div>
-                <div class="app-stats text-end">
-                    <div class="time">1h 53m</div>
-                    <div class="percentage">73%</div>
-                </div>
             </div>
         </div>
     </div>
-</div>
 </body>

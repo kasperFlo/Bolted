@@ -1,9 +1,14 @@
 import os
 from functools import lru_cache
-
+import google.generativeai as genai
 import requests
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
+
+load_dotenv()
+key = (os.environ['GOOGLE_API_KEY'])
+api_key = (os.environ['GOOGLE_API_KEY'])
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 load_dotenv()
 os.getenv

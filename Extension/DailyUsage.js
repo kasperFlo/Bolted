@@ -27,40 +27,56 @@ document.addEventListener('DOMContentLoaded', function() {
         return `https://www.${domain}/favicon.ico`;
     }
 
-    // Function to add a new site or update an existing one
+    function toggleErrorBar() {
+        const errorBars = document.querySelectorAll('.errorbar');
+        const toggleBtn = document.querySelector('.toggle-btn');
+    
+        errorBars.forEach(errorBar => {
+            if (errorBar.style.display === 'none' || errorBar.style.display === '') {
+                errorBar.style.display = 'block';
+                toggleBtn.classList.add('disabled');
+                toggleBtn.disabled = true;
+            } else {
+                errorBar.style.display = 'none';
+                toggleBtn.classList.remove('disabled');
+                toggleBtn.disabled = false;
+            }
+        });
+    }
+    
     function addOrUpdateSite() {
         const siteName = document.getElementById("siteName").value;
         const timeLimitInMinutes = parseInt(document.getElementById("timeLimit").value);
         const siteUrl = `https://${siteName.toLowerCase().replace(/\s+/g, '')}.com`; // Mocking the URL based on the site name
-
+    
         if (siteName && !isNaN(timeLimitInMinutes)) {
             const siteList = document.getElementById("siteList");
-
+    
             const siteItem = document.createElement("div");
             siteItem.classList.add("site-item");
             siteItem.onclick = () => openEditModal(siteItem, siteName, timeLimitInMinutes);
-
+    
             const siteLogo = document.createElement("img");
             siteLogo.src = fetchFavicon(siteUrl);  // Fetch favicon based on site URL
             siteLogo.alt = `${siteName} logo`;
             siteLogo.onerror = () => {
                 siteLogo.src = defaultImage; // Use default image if favicon fails to load
             };
-
+    
             const siteNameElement = document.createElement("span");
             siteNameElement.classList.add("site-name");
             siteNameElement.innerText = siteName;
-
+    
             const timeLimitElement = document.createElement("span");
             timeLimitElement.classList.add("time-limit");
             const hours = Math.floor(timeLimitInMinutes / 60);
             const minutes = timeLimitInMinutes % 60;
             timeLimitElement.innerText = `${hours} hours ${minutes} minutes`;
-
+    
             siteItem.appendChild(siteLogo);
             siteItem.appendChild(siteNameElement);
             siteItem.appendChild(timeLimitElement);
-
+    
             if (editingSiteIndex === -1) {
                 // Adding new site
                 sitesData.push({ siteName, timeLimitInMinutes, siteUrl });
@@ -70,13 +86,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 sitesData[editingSiteIndex] = { siteName, timeLimitInMinutes, siteUrl };
                 siteList.replaceChild(siteItem, siteList.children[editingSiteIndex]);
             }
-
+    
             // Close modal and reset
             closeAddSiteModal();
+    
+            // Hide error bar if it was previously shown
+            const errorBar = document.querySelector('.errorbar');
+            if (errorBar.style.display === 'block') {
+                toggleErrorBar();
+            }
         } else {
-            alert("Please fill in both the site name and time limit.");
+            // Show error bar
+            const errorBar = document.querySelector('.errorbar');
+            if (errorBar.style.display === 'none' || errorBar.style.display === '') {
+                toggleErrorBar();
+            }
         }
     }
+    
 
     // Function to open the modal for editing a site
     function openEditModal(siteItem, siteName, timeLimitInMinutes) {

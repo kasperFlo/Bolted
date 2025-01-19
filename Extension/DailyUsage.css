@@ -152,6 +152,11 @@ button:active {
     background-color: #1e7e34;
     /* Consider replacing with a darker shade of --primary */
 }
+.button.disabled{
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
 
 #deleteBtn {
     background-color: #dc3545;
@@ -179,4 +184,14 @@ button:active {
 
 .close-btn:hover {
     color: var(--primary);
+}
+
+.errorbar {
+    background-color: var(--secondary);
+    color: red;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
 }

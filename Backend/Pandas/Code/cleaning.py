@@ -1,8 +1,7 @@
 import json
-
 import pandas as pd
-from Pandas.Code.category import get_video_details, get_website_info
-from Pandas.Code.productive import isProductive, isProductiveYoutube
+from category import get_video_details
+from productive import isProductive, isProductiveYoutube
 
 # File paths
 input_file_path = "Backend/Pandas/Data/data.json"
@@ -22,36 +21,34 @@ def clean_data(df):
     return df
 
 
-def get_website_info_for_sites(df):
-    """Map domain, category, and description for each site."""
-    site_info = {site: get_website_info(site) for site in df["site"].unique()}
-    df["domain"], df["category"], df["description"] = zip(
-        *df["site"].map(lambda site: site_info.get(site, [None, None, None]))
-    )
-    return df
-
-
 def calculate_productivity(df):
     """Add productivity status to each website."""
-    df["is_productive"] = df.apply(
-        lambda row: isProductive(row["domain"], row["category"], row["description"]),
-        axis=1,
-    )
+    def check_productivity(site):
+        if "youtube.com" in site:
+            # Fetch video details (title and tags) for YouTube URLs
+            video_details = get_video_details(site)
+            title = video_details.get("title", "")
+            tags = video_details.get("tags", [])
+            # Use isProductiveYoutube for YouTube-specific logic
+            return isProductiveYoutube(title, tags)
+        # Use isProductive for other websites
+        return isProductive(site)
+
+    df["is_productive"] = df["site"].apply(check_productivity)
     return df
 
 
 def process_data(input_file_path):
-    """Process the data: load, clean, add website info, and calculate productivity."""
+    """Process the data: load, clean, and calculate productivity."""
     # Load and clean data
     data = load_data(input_file_path)
     df = pd.DataFrame(data)
     df = clean_data(df)
-    # Add website info and calculate productivity
-    df = get_website_info_for_sites(df)
+    # Calculate productivity
     df = calculate_productivity(df)
     # Group by site to calculate total time and sessions
     result = (
-        df.groupby(["site", "domain", "category", "description", "is_productive"])
+        df.groupby(["site", "is_productive"])
         .agg(total_time=("session_time", "sum"), total_sessions=("site", "count"))
         .reset_index()
     )
@@ -61,18 +58,12 @@ def process_data(input_file_path):
     # Add these totals to the result
     result.loc[len(result)] = [
         "Total Productive",
-        "-",
-        "-",
-        "-",
         True,
         total_productive_time,
         len(df[df["is_productive"] == True]),
     ]
     result.loc[len(result)] = [
         "Total Non-Productive",
-        "-",
-        "-",
-        "-",
         False,
         total_non_productive_time,
         len(df[df["is_productive"] == False]),
