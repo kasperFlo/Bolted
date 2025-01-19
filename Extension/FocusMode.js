@@ -9,6 +9,9 @@ const saveWebsite = document.getElementById("saveWebsite");
 const scheduleList = document.getElementById("scheduleList");
 const blockedWebsitesList = document.getElementById("blockedWebsitesList");
 
+
+document.addEventListener('DOMContentLoaded', function() { 
+
 // Toggle Focus Mode
 focusToggle.addEventListener("change", () => {
   alert(`Focus Mode ${focusToggle.checked ? "Enabled" : "Disabled"}`);
@@ -197,4 +200,4 @@ saveWebsite.addEventListener("click", () => {
       alert("Please enter a website URL.");
     }
   });
-  
+});

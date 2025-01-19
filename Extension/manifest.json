@@ -3,15 +3,15 @@
   "description": "To Lock in the user",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": [
-    "tabs",
-    "storage"
-  ],
+  "permissions": ["tabs", "storage"],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
     "default_icon": "hello_extensions.png",
     "default_popup": "popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
   }
 }
