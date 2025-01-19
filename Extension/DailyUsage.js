@@ -135,14 +135,4 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", closeAddSiteModal);
   });
 
-  //   document
-  //     .querySelector(".plus-bubble")
-  //     .addEventListener("click", openAddSiteModal);
-  //   document
-  //     .querySelector(".close-btn")
-  //     .addEventListener("click", closeAddSiteModal);
-  //   document
-  //     .querySelector("#addSiteBtn")
-  //     .addEventListener("click", addOrUpdateSite);
-  //   document.querySelector("#deleteBtn").addEventListener("click", deleteSite);
 });

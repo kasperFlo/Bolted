@@ -1,96 +1,101 @@
+:root {
+    --primary: #2fe6fe;
+    --secondary: #212529;
+    --accent: #0088ff;
+    --text: #ebe9fc;
+    --selected-color: #26264b;
+    --background-color: #26264b;
+    --dark-background: #1E1E3A;
+    --light-background: #3B3F58;
+  }
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1E1E3A;
-    color: #FFFFFF;
+  font-family: Arial, sans-serif;
+  background-color: var(--dark-background);
+  color: var(--text);
 }
 
 /* Dashboard Styles */
 .main-dashboard {
-    background-color: #252543;
+  background-color: var(--selected-color);
 }
 
 .usage-graph {
-    background-color: #3B3F58;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
+  background-color: var(--light-background);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-
 .toggle-buttons {
-    background-color: #1E1E3A;
-    border-radius: 20px;
-    padding: 4px;
+  background-color: var(--dark-background);
+  border-radius: 20px;
+  padding: 4px;
 }
 
 .toggle-buttons button {
-    background: none;
-    border: none;
-    color: #8A8DB9;
-    padding: 8px 16px;
-    border-radius: 16px;
+  background: none;
+  border: none;
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 16px;
 }
 
 .toggle-buttons button.active {
-    background-color: #252543;
-    color: white;
+  background-color: var(--selected-color);
+  color: var(--primary);
 }
 
 .app-item {
-    background-color: #1E1E3A;
+  background-color: var(--dark-background);
 }
 
 .app-icon {
-    background-color: #3B3F58;
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
+  background-color: var(--light-background);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
 }
 
 .progress-bar {
-    height: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    margin-top: 8px;
-    position: relative;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  margin-top: 8px;
+  position: relative;
 }
 
 .progress {
-    position: absolute;
-    height: 100%;
-    background-color: #E6E6FA;
-    border-radius: 4px;
+  position: absolute;
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 4px;
 }
 
 .secondary-progress {
-    position: absolute;
-    height: 8px;
-    background-color: rgba(230, 230, 250, 0.5);
-    border-radius: 4px;
-    bottom: -12px;
-    left: 0;
+  position: absolute;
+  height: 8px;
+  background-color: var(--accent);
+  opacity: 0.5;
+  border-radius: 4px;
+  bottom: -12px;
+  left: 0;
 }
 
 .percentage {
-    color: #E6E6FA;
+  color: var(--primary);
 }
 
 .graph-container {
-    background-color: #1E1E3A;
-    border-radius: 12px;
-    padding: 20px;
-    height: 300px;
-    position: relative;
+  background-color: var(--dark-background);
+  border-radius: 12px;
+  padding: 20px;
+  height: 300px;
+  position: relative;
 }
+
 .full-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  
-  .full-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-  
+  width: 100%;
+  height: 100%;
+  border: none;
+}

@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
+    <title>Daily Usage Limits Dashboard</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Usage Limits Dashboard</title>
     <link rel="stylesheet" href="./DailyUsage.css">
 </head>
 
 <body>
-    <div class="dashboard">
+    <div class="Dailylimits">
         <h1>Daily Usage Limits</h1>
 
         <!-- List of social media sites with time limits -->
@@ -23,16 +23,17 @@
 
     <!-- Modal to add or edit a site and time limit -->
     <div id="addSiteModal" class="modal">
-            <div class="modal-content">
+        <div class="modal-content">
                 <h2 id="modalTitle">Add New Site</h2>
                 <input type="text" id="siteName" placeholder="Enter site name">
                 <input type="number" id="timeLimit" placeholder="Enter time limit (in minutes)">
                 <button id="addSiteBtn" ">Add Site</button>
-            <button id="deleteBtn" style="background-color: #dc3545; display: none;" ">Delete</button>
-            <span class=" close-btn" ">×</span>
+                <button id="deleteBtn" style="background-color: #dc3545; display: none;" ">Delete</button>
+            <span class="close-btn" ">×</span>
         </div>
     </div>
     
-    <script src="./DailyUsage.js"></script>
+    <script src=" ./DailyUsage.js"></script>
 </body>
+
 </html>

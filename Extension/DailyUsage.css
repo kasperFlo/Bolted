@@ -1,18 +1,30 @@
-/* Basic styling */
+:root {
+    --primary: #2fe6fe;
+    --secondary: #212529;
+    --accent: #0088ff;
+    --text: #ebe9fc;
+    --selected-color: #26264b;
+    --background-color: #26264b;
+    --dark-background: #1E1E3A;
+    --light-background: #3B3F58;
+  }
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #1E1E3A;
+    background-color: var(--secondary);
+    color: var(--text);
     margin: 0;
     padding: 0;
 }
 
-.dashboard {
+.Dailylimits {
     padding: 20px;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: var(--text);
 }
 
 .site-list {
@@ -24,7 +36,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #8A8DB9;
+    background-color: var(--background);
+    color: var(--text);
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
@@ -45,15 +58,15 @@ h1 {
 
 .time-limit {
     font-size: 14px;
-    color: #888;
+    color: var(--accent);
 }
 
 .plus-bubble {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--primary);
+    color: var(--secondary);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -66,21 +79,20 @@ h1 {
 
 /* Modal styling */
 .modal {
+    background-color: #3B3F58;
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 .modal-content {
-    background-color: #1E1E3A;
-    opacity: 90%;
+    background-color: var(--secondary);
     padding: 30px;
     border-radius: 10px;
     width: 350px;
@@ -93,6 +105,7 @@ h1 {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -102,20 +115,22 @@ input {
     width: 100%;
     padding: 12px;
     margin: 15px 0;
-    border: 1px solid #00bfff;
+    border: 1px solid var(--primary);
+    background-color: var(--secondary);
+    color: var(--text);
     border-radius: 5px;
     font-size: 14px;
     transition: border-color 0.3s ease;
 }
 
 input:focus {
-    border-color: #007bff;
+    border-color: var(--accent);
     outline: none;
 }
 
 button {
-    background-color: #28a745;
-    color: white;
+    background-color: var(--primary);
+    color: var(--secondary);
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -127,15 +142,17 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: var(--accent);
 }
 
 button:active {
     background-color: #1e7e34;
+    /* Consider replacing with a darker shade of --primary */
 }
 
 #deleteBtn {
     background-color: #dc3545;
+    /* Consider using a red shade that fits your color scheme */
     margin-top: 10px;
 }
 
@@ -152,11 +169,11 @@ button:active {
     top: 10px;
     right: 10px;
     font-size: 24px;
-    color: #555;
+    color: var(--text);
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .close-btn:hover {
-    color: #007bff;
+    color: var(--primary);
 }

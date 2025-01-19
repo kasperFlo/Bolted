@@ -6,11 +6,10 @@
   <title>Focus Mode</title>
   <link rel="stylesheet" href="./FocusMode.css">
 </head>
-
 <body>
   <div class="focus-mode-container">
     <header>
-      <h1 style="padding-left: 200px; color:white">Focus Mode</h1>
+      <h1>Focus Mode</h1>
       <label class="toggle">
         <input type="checkbox" id="focusToggle">
         <span class="slider"></span>
@@ -19,17 +18,13 @@
     
     <section class="schedule">
       <h2>Class Schedule</h2>
-      <ul id="scheduleList">
-        <!-- Dynamically generated items -->
-      </ul>
+      <ul id="scheduleList"></ul>
       <button id="addSchedule">Add Class</button>
     </section>
 
     <section class="blocked-websites">
       <h2>Blocked Websites</h2>
-      <ul id="blockedWebsitesList">
-        <!-- Dynamically generated items -->
-      </ul>
+      <ul id="blockedWebsitesList"></ul>
       <button id="addWebsite">Add Website</button>
     </section>
   </div>
@@ -41,27 +36,13 @@
   
     <label for="daysOfWeek">Days of the Week</label>
     <div class="days-container">
-      <label class="day-option">
-        <input type="checkbox" value="Monday"> <span>Monday</span>
-      </label>
-      <label class="day-option">
-        <input type="checkbox" value="Tuesday"> <span>Tuesday</span>
-      </label>
-      <label class="day-option">
-        <input type="checkbox" value="Wednesday"> <span>Wednesday</span>
-      </label>
-      <label class="day-option">
-        <input type="checkbox" value="Thursday"> <span>Thursday</span>
-      </label>
-      <label class="day-option">
-        <input type="checkbox" value="Friday"> <span>Friday</span>
-      </label>
-      <label class="day-option">
-        <input type="checkbox" value="Saturday"> <span>Saturday</span>
-      </label>
-      <label class="day-option">
-        <input type="checkbox" value="Sunday"> <span>Sunday</span>
-      </label>
+      <label class="day-option"><input type="checkbox" value="Monday"><span>Monday</span></label>
+      <label class="day-option"><input type="checkbox" value="Tuesday"><span>Tuesday</span></label>
+      <label class="day-option"><input type="checkbox" value="Wednesday"><span>Wednesday</span></label>
+      <label class="day-option"><input type="checkbox" value="Thursday"><span>Thursday</span></label>
+      <label class="day-option"><input type="checkbox" value="Friday"><span>Friday</span></label>
+      <label class="day-option"><input type="checkbox" value="Saturday"><span>Saturday</span></label>
+      <label class="day-option"><input type="checkbox" value="Sunday"><span>Sunday</span></label>
     </div>
   
     <label for="startTime">Start Time</label>
@@ -76,7 +57,6 @@
     </div>
   </div>
   
-  <!-- Website Popup -->
   <div id="websitePopup" class="popup">
     <h3>Add or Edit Website</h3>
     <label for="websiteURL">Website URL</label>
