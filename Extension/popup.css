@@ -159,8 +159,8 @@ body {
 .item-row {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding-bottom: 30px;
+  gap: 8px;
+  padding-bottom: 15px;
 }
 
 .placeholder-img {

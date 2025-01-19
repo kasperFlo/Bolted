@@ -1,32 +1,32 @@
 import json
-
+from urllib.parse import urlparse
 import pandas as pd
-from Pandas.Code.category import get_video_details
-from Pandas.Code.productive import isProductive, isProductiveYoutube
+from category import get_video_details
+from productive import isProductive, isProductiveYoutube
 
 # File paths
-input_file_path = "Pandas/Data/data.json"
-output_file_path = "Pandas/Data/output.csv"
+input_file_path = "Backend/Pandas/Data/data.json"
+output_file_path = "Backend/Pandas/Data/output.csv"
 
 
 def load_data(input_file_path):
-    """Load JSON data from the input file."""
     with open(input_file_path, "r") as file:
         return json.load(file)
 
 
 def clean_data(df):
-    """Clean the dataframe by dropping rows with null 'site' and calculating session time."""
     df = df.dropna(subset=["site"])
     df["session_time"] = df["end"] - df["start"]
     return df
 
+def is_youtube_url(url):
+    parsed_url = urlparse(url)
+    return "youtube.com" in parsed_url.netloc
+
 
 def calculate_productivity(df):
-    """Add productivity status to each website."""
-
     def check_productivity(site):
-        if "youtube.com" in site:
+        if is_youtube_url(site):
             # Fetch video details (title and tags) for YouTube URLs
             video_details = get_video_details(site)
             title = video_details.get("title", "")
@@ -41,7 +41,6 @@ def calculate_productivity(df):
 
 
 def process_data(input_file_path):
-    """Process the data: load, clean, and calculate productivity."""
     # Load and clean data
     data = load_data(input_file_path)
     df = pd.DataFrame(data)
@@ -74,11 +73,10 @@ def process_data(input_file_path):
 
 
 def save_result(result, output_file_path):
-    """Save the final result to a CSV file."""
     result.to_csv(output_file_path, index=False)
     print(f"Results saved to {output_file_path}")
 
 
 # Main execution flow
-# result = process_data(input_file_path)
-# save_result(result, output_file_path)
+result = process_data(input_file_path)
+save_result(result, output_file_path)
