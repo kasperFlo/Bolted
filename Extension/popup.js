@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === "visible") {
       populateData();
+      //analyzeSite();
     }
   });
 });
@@ -52,7 +53,7 @@ async function populateData() {
 }
 
 function displayTopx(dt) {
-  sitesToDisp = 10;
+  sitesToDisp = 4;
   let sorted = Object.entries(dt).sort((a, b) => b[1] - a[1]);
   let topSites = sorted.slice(0, sitesToDisp);
   let siteStore = document.getElementById("siteStore");
@@ -84,4 +85,27 @@ function formatTime(time) {
   let minutes = Math.floor((time % 3600) / 60);
   let seconds = time % 60;
   return `${hours}h ${minutes}m ${seconds}s`;
+}
+
+async function analyzeSite() {
+  if (data == []) {
+    return;
+  }
+  url = "http://127.0.0.1:5001/api/analyze";
+
+
+  (async () => {
+    const rawResponse = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify(data)
+    });
+    const content = await rawResponse.json();
+
+    console.log(content);
+    alert(content);
+  })();
 }
