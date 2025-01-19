@@ -3,7 +3,7 @@
     --secondary: #212529;
     --accent: #0088ff;
     --text: #ebe9fc;
-    --selected-color: #26264b;
+    --selected-color: #3B3F58;
     --background-color: #26264b;
     --dark-background: #1E1E3A;
     --light-background: #3B3F58;
@@ -36,13 +36,14 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--background);
+    background-color: var(--selected-color);
     color: var(--text);
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+
 }
 
 .site-item img {
