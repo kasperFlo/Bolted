@@ -1,16 +1,9 @@
 let editingSiteIndex = -1; // To track the index of the site being edited
 let sitesData = []; // Array to store the sites and their details
 
-// Function to open the modal for adding a new site
-function openAddSiteModal() {
-  document.getElementById("addSiteModal").style.display = "flex";
-  document.getElementById("modalTitle").textContent = "Add New Site";
-  document.getElementById("addSiteBtn").textContent = "Add Site";
-  document.getElementById("deleteBtn").style.display = "none";
-  document.getElementById("siteName").value = "";
-  document.getElementById("timeLimit").value = "";
-  editingSiteIndex = -1; // Reset the index for a new site
-}
+
+
+
 
 // Function to close the modal
 function closeAddSiteModal() {
@@ -105,8 +98,24 @@ function deleteSite() {
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DailyUsage.js loaded");
+  
+  function openAddSiteModal() { // Function to open the modal for adding a new site
+    const modal = document.getElementById("addSiteModal");
+    if (modal) {
+        modal.style.display = "flex";
+        document.getElementById("modalTitle").textContent = "Add New Site";
+        document.getElementById("addSiteModal").style.display = "flex";
+        document.getElementById("addSiteBtn").textContent = "Add Site";
+        document.getElementById("deleteBtn").style.display = "none";
+        document.getElementById("siteName").value = "";
+        document.getElementById("timeLimit").value = "";
+      } else {
+        console.error("Modal element not found");
+      }
+    editingSiteIndex = -1; // Reset the index for a new site
+  }
 
-    // Plus bubble handler
+  // Plus bubble handler
   document.querySelectorAll(".plus-bubble").forEach((element) => {
     element.addEventListener("click", openAddSiteModal);
   });
@@ -126,14 +135,14 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", closeAddSiteModal);
   });
 
-//   document
-//     .querySelector(".plus-bubble")
-//     .addEventListener("click", openAddSiteModal);
-//   document
-//     .querySelector(".close-btn")
-//     .addEventListener("click", closeAddSiteModal);
-//   document
-//     .querySelector("#addSiteBtn")
-//     .addEventListener("click", addOrUpdateSite);
-//   document.querySelector("#deleteBtn").addEventListener("click", deleteSite);
+  //   document
+  //     .querySelector(".plus-bubble")
+  //     .addEventListener("click", openAddSiteModal);
+  //   document
+  //     .querySelector(".close-btn")
+  //     .addEventListener("click", closeAddSiteModal);
+  //   document
+  //     .querySelector("#addSiteBtn")
+  //     .addEventListener("click", addOrUpdateSite);
+  //   document.querySelector("#deleteBtn").addEventListener("click", deleteSite);
 });

@@ -1,0 +1,3 @@
+if (viewName === "dashboard") {
+    initializeGraph();
+  }
