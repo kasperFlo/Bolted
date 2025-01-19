@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1E1E3A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .settings-container {
+      background-color: #4141a1;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="settings-container">
+    <h1>Student Settings</h1>
+    <form id="settings-form">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="course">Course:</label>
+        <input type="text" id="course" placeholder="Enter your course name">
+      </div>
+
+      <div class="form-group">
+        <label for="semester">Current Semester:</label>
+        <input type="text" id="semester" placeholder="Enter your current semester">
+      </div>
+
+      <div class="form-group">
+        <label for="graduation-date">Graduation Date:</label>
+        <input type="date" id="graduation-date">
+      </div>
+
+      <div class="form-group">
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" placeholder="Enter your contact number">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email address">
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea id="address" rows="4" placeholder="Enter your address"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="bio">Short Bio:</label>
+        <textarea id="bio" rows="3" placeholder="Write a short bio about yourself"></textarea>
+      </div>
+
+      <button type="button" id="save-btn">Save Changes</button>
+    </form>
+  </div>
+
+  <script>
+    // Function to save form data to localStorage
+    function saveSettings() {
+      const settings = {
+        name: document.getElementById('name').value,
+        course: document.getElementById('course').value,
+        semester: document.getElementById('semester').value,
+        graduationDate: document.getElementById('graduation-date').value,
+        contact: document.getElementById('contact').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        bio: document.getElementById('bio').value,
+      };
+
+      localStorage.setItem('studentSettings', JSON.stringify(settings));
+      alert('Settings saved successfully!');
+    }
+
+    // Function to load form data from localStorage
+    function loadSettings() {
+      const savedSettings = JSON.parse(localStorage.getItem('studentSettings'));
+
+      if (savedSettings) {
+        document.getElementById('name').value = savedSettings.name || '';
+        document.getElementById('course').value = savedSettings.course || '';
+        document.getElementById('semester').value = savedSettings.semester || '';
+        document.getElementById('graduation-date').value = savedSettings.graduationDate || '';
+        document.getElementById('contact').value = savedSettings.contact || '';
+        document.getElementById('email').value = savedSettings.email || '';
+        document.getElementById('address').value = savedSettings.address || '';
+        document.getElementById('bio').value = savedSettings.bio || '';
+      }
+    }
+
+    // Attach event listeners
+    document.getElementById('save-btn').addEventListener('click', saveSettings);
+
+    // Load settings on page load
+    window.onload = loadSettings;
+  </script>
+</body>
+</html>
